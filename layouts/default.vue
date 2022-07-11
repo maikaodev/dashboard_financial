@@ -68,11 +68,6 @@ export default {
   data() {
     return {}
   },
-  methods: {
-    toggleMenu() {
-      this.menu = !this.menu
-    },
-  },
 }
 </script>
 <style>
