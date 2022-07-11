@@ -1,11 +1,11 @@
 <template>
   <div>
     <header
-      class="flex justify-around drop-shadow-2xl md:justify-between items-center h-[10vh]"
+      class="flex justify-around drop-shadow-2xl bg-[#222] text-white md:justify-between items-center h-[10vh]"
     >
       <!-- LOGO -->
       <div class="logo cursor-pointer ml-3">
-        <NuxtLInk :to="{ name: IndexPage }">
+        <NuxtLInk :to="{ name: 'index' }">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -25,31 +25,35 @@
       <!-- LOGO -->
 
       <!-- Menu de navegação -->
-
       <nav class="space-x-2 cursor-pointer md:mr-6 md:space-x-3">
-        <NuxtLInk
-          class="py-3 md:px-3 duration-300 hover:bg-gray-300"
-          :to="{ name: IndexPage }"
-          >Home</NuxtLInk
+        <NuxtLink
+          class="py-3 md:px-3 duration-300 hover:bg-gray-700"
+          :to="{ name: 'index' }"
         >
-        <NuxtLInk
-          class="py-3 md:px-3 ease-in duration-300 hover:bg-gray-300"
-          :to="{ name: IndexPage }"
-          >Categories</NuxtLInk
+          Home
+        </NuxtLink>
+        <NuxtLink
+          class="py-3 md:px-3 ease-in duration-300 hover:bg-gray-700"
+          :to="{ name: 'categories' }"
         >
-        <NuxtLInk
-          class="py-3 md:px-3 duration-300 hover:bg-gray-300"
-          :to="{ name: IndexPage }"
-          >Transactions</NuxtLInk
+          Categories
+        </NuxtLink>
+        <NuxtLink
+          class="py-3 md:px-3 duration-300 hover:bg-gray-700"
+          :to="{ name: 'index' }"
         >
+          Transactions
+        </NuxtLink>
       </nav>
 
       <!-- Menu de navegação -->
     </header>
 
-    <Nuxt class="bg-gray" />
+    <Nuxt />
 
-    <footer class="flex flex-col justify-center items-center h-[10vh]">
+    <footer
+      class="flex flex-col justify-center items-center bg-[#222] text-white h-[10vh]"
+    >
       <nav class="text-2xl space-x-2">
         <a href="https://github.com/maikaodev" target="_blank">
           <fa :icon="['fab', 'github']" />
