@@ -1,97 +1,118 @@
 <template>
-  <main
-    class="overflow-x-hidden flex flex-col h-[80vh] mx-2 md:mx-auto md:w-[90vw]"
-  >
-    <section class="space-y-3 justify-around pt-12">
-      <!-- HEADER -->
-      <div class="flex justify-between">
-        <h2 class="text-3xl">Transactions</h2>
-        <button
-          class="bg-[#222] text-white p-3 rounded"
-          @click="toggleNewTransaction()"
-        >
-          New
-        </button>
-      </div>
-      <!-- HEADER -->
-      <!-- FORM -->
-      <form
-        v-if="addNew"
-        class="flex flex-col space-y-3 border-2 border-black rounded p-3 md:flex-row md:justify-between md:items-center md:space-y-0"
-        @submit.prevent
-      >
-        <label
-          >Date:
-          <input type="date" />
-        </label>
-        <label
-          >Value:
-          <input class="border-2 border-black rounded" type="number" />
-        </label>
-        <label>
-          Description:
-          <input class="border-2 border-black rounded" type="text" />
-        </label>
-        <label>
-          Categorie:
-          <select name="" id="">
-            <option value="">opt1</option>
-            <option value="">opt1</option>
-            <option value="">opt1</option>
-            <option value="">opt1</option>
-          </select>
-        </label>
+  <main class="mt-4 space-y-4 p-5 h-[80vh] overflow-x-hidden">
+    <!-- HEADER -->
+    <header>
+      <div class="flex items-center justify-between">
+        <h1 class="font-bold text-2xl">Categorias</h1>
 
-        <div class="flex self-end space-x-2">
-          <button
-            class="bg-red-600 p-2 rounded font-semibold"
-            @click="toggleNewTransaction()"
-          >
-            Cancel
-          </button>
-          <button class="bg-green-600 p-2 rounded font-semibold">
-            Confirmar
-          </button>
-        </div>
-      </form>
-      <!-- FORM -->
-    </section>
-    <section class="space-y-3 justify-around pt-12">
-      <ul>
-        <li
-          class="flex flex-col py-3 border-t-2 border-indigo-500 mb-3 shadow-lg shadow-indigo-500/50"
-        >
-          <span class="self-end">$40,05</span>
-          <div class="space-y-3">
-            <span class="bg-indigo-400 p-1 rounded font-semibold"
-              >Software</span
-            >
-            <p>Pagamento de boleto</p>
-          </div>
-          <div class="flex items-center self-end cursor-pointer space-x-3">
-            <button class="text-sky-600 p-4">
-              <fa icon="pen" />
-            </button>
-            <button class="text-red-600 p-4">
-              <fa icon="x" />
-            </button>
-          </div>
+        <AppButton @click="addCategory"> New </AppButton>
+      </div>
+    </header>
+    <!-- HEADER -->
+    <!-- FORM -->
+    <form v-if="addNew" @submit.prevent>
+      <ul class="md:flex items-center justify-between">
+        <li>
+          <AppFormLabel
+            >Date
+            <AppInputText v-model="form.date" type="date" />
+          </AppFormLabel>
+        </li>
+
+        <li>
+          <AppFormLabel
+            >Value
+            <AppInputText v-model="form.amount" type="number" />
+          </AppFormLabel>
+        </li>
+
+        <li>
+          <AppFormLabel
+            >Description
+            <AppInputText v-model="form.description" />
+          </AppFormLabel>
+        </li>
+
+        <li>
+          <AppFormLabel
+            >Categories
+            <AppFormSelect
+              :options="[{ name: 'Licença de softwares', id: 1 }]"
+            />
+          </AppFormLabel>
         </li>
       </ul>
+
+      <div class="space-x-4 flex items-center justify-end">
+        <button
+          class="inline-flex text-gray-700 text-sm"
+          @click.stop.prevent="addCategory()"
+        >
+          Cancel
+        </button>
+
+        <AppButton @click="addTransaction"> Add </AppButton>
+      </div>
+    </form>
+    <!-- FORM -->
+    <!-- LIST -->
+    <section class="mt-3">
+      <header class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
+          <fa class="text-lime-600" icon="plus" />
+
+          <span class="font-bold">R$ 43,02</span>
+        </div>
+
+        <button>
+          <fa icon="angle-down" />
+        </button>
+      </header>
+
+      <div
+        class="flex items-center px-5 py-6 bg-white space-x-5 rounded-lg shadow"
+      >
+        <span
+          class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800"
+        >
+          Software
+        </span>
+
+        <p class="mt-1.5">Pagamento de boleto</p>
+      </div>
     </section>
   </main>
 </template>
+
 <script>
+import AppButton from '../components/ui/AppButton.vue'
+import AppInputText from '../components/ui/AppInput.vue'
+import AppFormLabel from '../components/ui/AppFormLabel.vue'
+import AppFormSelect from '../components/ui/AppFormSelect.vue'
+
 export default {
   name: 'TransactionsPage',
+  components: { AppInputText, AppButton, AppFormLabel, AppFormSelect },
+
   data() {
     return {
       addNew: false,
+      edit: false,
+      form: {
+        date: '',
+        amount: 0,
+        description: '',
+        categoryId: '',
+      },
+      categories: [],
     }
   },
   methods: {
-    toggleNewTransaction() {
+    addCategory() {
       this.addNew = !this.addNew
+    },
+    toggleEdit() {
+      this.edit = !this.edit
     },
   },
 }
