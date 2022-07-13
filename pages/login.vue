@@ -7,11 +7,11 @@
       <form @submit.prevent>
         <AppFormLabel>
           Email:
-          <AppInput :type="email" placeholder="email@example.com" />
+          <AppInput type="email" placeholder="email@example.com" />
         </AppFormLabel>
         <AppFormLabel>
           Password:
-          <AppInputPassword :type="password" placeholder="Password" />
+          <AppInputPassword />
         </AppFormLabel>
         <AppButton class="mt-4 w-full" @click="alert()">Login</AppButton>
       </form>
