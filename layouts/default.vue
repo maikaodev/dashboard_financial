@@ -34,9 +34,9 @@
         </NuxtLink>
         <NuxtLink
           class="py-3 md:px-3 ease-in duration-300 hover:bg-gray-700"
-          :to="{ name: 'categories' }"
+          :to="{ name: 'login' }"
         >
-          Categorias
+          Login
         </NuxtLink>
         <NuxtLink
           class="py-3 md:px-3 duration-300 hover:bg-gray-700"
