@@ -7,7 +7,7 @@
     <section class="mt-6">
       <div>
         <div class="flex items-center space-x-3">
-          <AppInputText placeholder="Write a new categorie" />
+          <AppInput placeholder="Write a new categorie" />
           <AppButton> Add </AppButton>
         </div>
       </div>
@@ -69,10 +69,10 @@
 </template>
 <script>
 import AppButton from '../components/ui/AppButton.vue'
-import AppInputText from '../components/ui/AppInput.vue'
+import AppInput from '../components/ui/AppInput.vue'
 export default {
   name: 'CategoriesPage',
-  components: { AppInputText, AppButton },
+  components: { AppInput, AppButton },
   data() {
     return {
       edit: false,
