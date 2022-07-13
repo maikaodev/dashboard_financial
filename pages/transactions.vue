@@ -15,21 +15,21 @@
         <li>
           <AppFormLabel
             >Date
-            <AppInputText v-model="form.date" type="date" />
+            <AppInput v-model="form.date" type="date" />
           </AppFormLabel>
         </li>
 
         <li>
           <AppFormLabel
             >Value
-            <AppInputText v-model="form.amount" type="number" />
+            <AppInput v-model="form.amount" type="number" />
           </AppFormLabel>
         </li>
 
         <li>
           <AppFormLabel
             >Description
-            <AppInputText v-model="form.description" />
+            <AppInput v-model="form.description" />
           </AppFormLabel>
         </li>
 
@@ -86,13 +86,13 @@
 
 <script>
 import AppButton from '../components/ui/AppButton.vue'
-import AppInputText from '../components/ui/AppInput.vue'
+import AppInput from '../components/ui/AppInput.vue'
 import AppFormLabel from '../components/ui/AppFormLabel.vue'
 import AppFormSelect from '../components/ui/AppFormSelect.vue'
 
 export default {
   name: 'TransactionsPage',
-  components: { AppInputText, AppButton, AppFormLabel, AppFormSelect },
+  components: { AppInput, AppButton, AppFormLabel, AppFormSelect },
 
   data() {
     return {
