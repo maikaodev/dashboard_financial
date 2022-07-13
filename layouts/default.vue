@@ -40,9 +40,9 @@
         </NuxtLink>
         <NuxtLink
           class="py-3 md:px-3 duration-300 hover:bg-gray-700"
-          :to="{ name: 'register' }"
+          :to="{ name: 'signup' }"
         >
-          Register
+          Signup
         </NuxtLink>
       </nav>
 

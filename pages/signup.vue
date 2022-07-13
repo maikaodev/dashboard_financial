@@ -2,8 +2,8 @@
   <main
     class="flex flex-col items-center justify-center mt-12 h-[80vh] mx-auto w-[90vw]"
   >
-    <section class="h-[60vh] md:w-1/3">
-      <h1 class="text-4xl mb-4">Register:</h1>
+    <section class="h-[70vh] md:w-1/3">
+      <h1 class="text-4xl mb-4">Signup:</h1>
 
       <form @submit.prevent>
         <AppFormLabel>
@@ -22,7 +22,7 @@
           Confirm password:
           <AppInputPassword />
         </AppFormLabel>
-        <AppButton class="mt-4 w-full" @click="alert()">Register</AppButton>
+        <AppButton class="mt-4 w-full" @click="alert()">Confirm</AppButton>
       </form>
     </section>
   </main>
@@ -33,7 +33,7 @@ import AppInput from '../components/ui/AppInput.vue'
 import AppInputPassword from '../components/ui/AppInputPassword.vue'
 import AppFormLabel from '../components/ui/AppFormLabel.vue'
 export default {
-  name: 'RegisterUser',
+  name: 'SignupUser',
   components: {
     AppButton,
     AppInput,
